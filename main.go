@@ -2,14 +2,21 @@ package main
 
 import (
 	"log/slog"
+	"os"
 	"runtime"
+	"strconv"
 	"time"
 
 	"github.com/brody192/logger"
 )
 
 func main() {
-	ticker := time.NewTicker(1200 * time.Millisecond)
+	tickerInterval := 1200
+	if v, err := strconv.Atoi(os.Getenv("TICKER_MS")); err == nil && v > 0 {
+		tickerInterval = v
+	}
+
+	ticker := time.NewTicker(time.Duration(tickerInterval) * time.Millisecond)
 	defer ticker.Stop()
 
 	extraAttrs := []any{
