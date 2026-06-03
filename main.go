@@ -26,6 +26,8 @@ func main() {
 		slog.Float64("test_float", 1.2345678),
 		slog.Any("test_string_slice", []string{"hello", "world"}),
 		slog.Any("test_int_slice", []int{123, 456, 789}),
+		slog.Bool("test_bool_true", true),
+		slog.Bool("test_bool_false", false),
 		slog.Group("test_group",
 			slog.String("test_grouped_string", "Hello, World!"),
 			slog.Int64("test_grouped_int", 12345678),
