@@ -20,6 +20,8 @@ func main() {
 	defer ticker.Stop()
 
 	extraAttrs := []any{
+		slog.String("name", "test-service"),
+		slog.String("name", "test"),
 		slog.String("go_version", runtime.Version()),
 		slog.String("test_string", "Hello, World!"),
 		slog.Int64("test_int", 12345678),
